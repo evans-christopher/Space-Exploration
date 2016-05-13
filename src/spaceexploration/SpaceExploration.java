@@ -6,6 +6,7 @@
 package spaceexploration;
 
 import byui.cit260.spaceExploration.model.Player;
+import byui.cit260.spaceExploration.model.Ship;
 
 /**
  *
@@ -24,6 +25,13 @@ public class SpaceExploration {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        Ship ship = new Ship();
+        
+        ship.setDamageAmount(67);
+        
+        String shipInfo = ship.toString();
+        System.out.println(shipInfo);
     }
-    
+   
 }
