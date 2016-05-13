@@ -5,6 +5,8 @@
  */
 package spaceexploration;
 
+import byui.cit260.spaceExploration.model.Item;
+import byui.cit260.spaceExploration.model.Map;
 import byui.cit260.spaceExploration.model.Player;
 import byui.cit260.spaceExploration.model.Ship;
 
@@ -32,6 +34,23 @@ public class SpaceExploration {
         
         String shipInfo = ship.toString();
         System.out.println(shipInfo);
+        
+        Map map = new Map();
+        
+        map.setRowCount(5);
+        map.setColumnCount(5);
+        
+        String mapInfo = map.toString();
+        System.out.println(mapInfo);
+        
+        Item tool = new Item();
+        
+        tool.setType("hammer");
+        tool.setQuantity(1);
+        tool.setRequiredAmount(1);
+        
+        String itemInfo = tool.toString();
+        System.out.println(itemInfo);
     }
    
 }
