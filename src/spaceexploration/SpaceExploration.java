@@ -5,6 +5,7 @@
  */
 package spaceexploration;
 
+import byui.cit260.spaceExploration.model.Game;
 import byui.cit260.spaceExploration.model.Item;
 import byui.cit260.spaceExploration.model.Map;
 import byui.cit260.spaceExploration.model.Player;
@@ -51,6 +52,13 @@ public class SpaceExploration {
         
         String itemInfo = tool.toString();
         System.out.println(itemInfo);
+        
+        Game game = new Game();
+        
+        game.setTotalTime(15);
+        
+        String gameInfo = game.toString();
+        System.out.println(gameInfo);
     }
    
 }
