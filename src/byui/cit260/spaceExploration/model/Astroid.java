@@ -11,21 +11,21 @@ import java.io.Serializable;
  *
  * @author Erik
  */
-public class Character implements Serializable{
+public class Astroid implements Serializable{
     
     //class instance variables
-    private String name;
-    private double coordinates;
+    private int choice;
+    private double result;
 
     @Override
     public String toString() {
-        return "Character{" + "coordinates=" + coordinates + '}';
+        return "Astroid{" + "result=" + result + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.coordinates) ^ (Double.doubleToLongBits(this.coordinates) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.result) ^ (Double.doubleToLongBits(this.result) >>> 32));
         return hash;
     }
 
@@ -40,22 +40,24 @@ public class Character implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Character other = (Character) obj;
-        if (Double.doubleToLongBits(this.coordinates) != Double.doubleToLongBits(other.coordinates)) {
+        final Astroid other = (Astroid) obj;
+        if (Double.doubleToLongBits(this.result) != Double.doubleToLongBits(other.result)) {
             return false;
         }
         return true;
     }
 
-    public Character() {
+   // public Astroid(choice , double result) {
+   //     this.<error> = <error>;
+   //     this.result = result;
+   // }
+
+    public double getResult() {
+        return result;
     }
 
-    public double getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(double coordinates) {
-        this.coordinates = coordinates;
+    public void setResult(double result) {
+        this.result = result;
     }
     
 }
