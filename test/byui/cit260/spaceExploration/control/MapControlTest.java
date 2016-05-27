@@ -78,7 +78,7 @@ public class MapControlTest {
         result = instance.calcDistance(currentRow, currentCol, row, col);
         assertEquals(expResult, result, 0.0);
         
-        System.out.println("Test #2");
+        System.out.println("Test #7");
         currentRow = 1;
         currentCol = 1;
         row = 2;
