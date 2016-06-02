@@ -5,11 +5,8 @@
  */
 package spaceexploration;
 
-import byui.cit260.spaceExploration.model.Game;
-import byui.cit260.spaceExploration.model.Item;
-import byui.cit260.spaceExploration.model.Map;
-import byui.cit260.spaceExploration.model.Player;
-import byui.cit260.spaceExploration.model.Ship;
+import citbyui.cit260.SpaceExploration.view.StartProgramView;
+
 
 /**
  *
@@ -21,44 +18,9 @@ public class SpaceExploration {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player playerOne = new Player();
-        
-        playerOne.setName("Fred Flintstone");
-        playerOne.setBestTime(7.00);
-        
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
-        
-        Ship ship = new Ship();
-        
-        ship.setDamageAmount(67);
-        
-        String shipInfo = ship.toString();
-        System.out.println(shipInfo);
-        
-        Map map = new Map();
-        
-        map.setRowCount(5);
-        map.setColumnCount(5);
-        
-        String mapInfo = map.toString();
-        System.out.println(mapInfo);
-        
-        Item tool = new Item();
-        
-        tool.setType("hammer");
-        tool.setQuantity(1);
-        tool.setRequiredAmount(1);
-        
-        String itemInfo = tool.toString();
-        System.out.println(itemInfo);
-        
-        Game game = new Game();
-        
-        game.setTotalTime(15);
-        
-        String gameInfo = game.toString();
-        System.out.println(gameInfo);
+        //create StartProgramViewOrig and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
     }
    
 }
