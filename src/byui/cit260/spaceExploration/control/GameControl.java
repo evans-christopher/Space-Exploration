@@ -6,6 +6,7 @@
 package byui.cit260.spaceExploration.control;
 
 import byui.cit260.spaceExploration.model.Player;
+import spaceexploration.SpaceExploration;
 
 /**
  *
@@ -13,8 +14,18 @@ import byui.cit260.spaceExploration.model.Player;
  */
 public class GameControl {
 
-    public static Player createPlayer(String playersName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Player createPlayer(String name) {
+        
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        SpaceExploration.setPlayer(player); //save the player
+        
+        return player;
     }
     
 }

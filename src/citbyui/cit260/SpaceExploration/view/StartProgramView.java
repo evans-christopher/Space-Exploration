@@ -82,10 +82,30 @@ public class StartProgramView {
         
         // call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
+        
         if (player == null) {
             System.out.println("\nError creating the player.");
             return false;
         }
+        
+        //display next view
+        this.displayNextView(player);
+        
+        return true;
+    }
+
+    private void displayNextView(Player player) {
+        System.out.println("\n=============================="
+                           + "\n Welcome to space, " + player.getName()
+                           + "\n The Final Frontier"
+                           + "\n============================="
+                          );
+        
+        // Create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+                
+        //Display the main menu view
+        mainMenuView.displayMainMenuView();
     }
     
 }

@@ -5,6 +5,8 @@
  */
 package spaceexploration;
 
+import byui.cit260.spaceExploration.model.Game;
+import byui.cit260.spaceExploration.model.Player;
 import citbyui.cit260.SpaceExploration.view.StartProgramView;
 
 
@@ -13,6 +15,26 @@ import citbyui.cit260.SpaceExploration.view.StartProgramView;
  * @author ibdch
  */
 public class SpaceExploration {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+    
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        SpaceExploration.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        SpaceExploration.player = player;
+    }
+    
 
     /**
      * @param args the command line arguments
