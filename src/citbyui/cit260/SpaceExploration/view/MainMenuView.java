@@ -48,5 +48,30 @@ public class MainMenuView {
         return true;
     }
     
+    //Chris this is where I tried implementing what I thought it wanted 
+    // on page 44.
+    //public boolean doAction(String choice){
+        
+      // choice = choice.toUpperCase(); //convert choice to upper case
+   // switch (choice) {
+   // case "N": // create and start a new game
+   // this.startNewGame();
+   // break;
+   // case "G": // get and start an existing game
+   // this.startExistingGame();
+   // break;
+   //case "H": //display the help menu
+   // this.displayHelpMenu();
+   // break;
+   // case "S": // save current game
+   // this.saveGame();
+   // break;
+   // default:
+   // System.OutOfMemoryError.println("\n*** Invalid selection *** Please try again");
+   // break;
+        
+        // }
+    
+    //return false;
     
 }
