@@ -7,26 +7,14 @@ package citbyui.cit260.SpaceExploration.view;
 
 /**
  *
- * @author ibdch
+ * @author Erik
  */
-public class MainMenuView {
+public class HelpMenuView {
     
+   
     private String menu;
     
-    private void startNewGame() {
-        System.out.println("*** startNewGame function called ***");
-    }
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
-    }
-    private void saveGame() {
-        System.out.println("*** startExistingGame function called ***");
-    }
-    private void displayHelpMenu() {
-        System.out.println("*** displayHelpMenu function called ***");
-    }
-    
-    public void displayMainMenuView() {
+    public void displayHelpMenuView() {
         boolean done = false; // set flag to not done
         do {
             // prompt for and get players name
@@ -39,14 +27,15 @@ public class MainMenuView {
         } while (!done);
     }
     
-    public MainMenuView() {
+    public HelpMenuView() {
         this.menu = "\n"
                   + "\n--------------------------------------"
-                  + "\n| Main Menu                           "
+                  + "\n| Help Menu                          |"
                   + "\n--------------------------------------"
-                  + "\nN - Start New Game"
-                  + "\nL - Load Saved Game"
-                  + "\nH - Open Help Menu"
+                  + "\nW - Whats the objective"
+                  + "\nH - How to move/Navigate"
+                  + "\nG - Gathering/using resources"
+                  + "\nR - Repairing Ship for voyage home"
                   + "\nE - Exit"
                   + "\n--------------------------------------";
     }
@@ -56,28 +45,25 @@ public class MainMenuView {
         return "N";
     }
 
-    //private boolean doAction(String menuOption) {
-     //   System.out.println("\n*** doAction() function called ***");
-     //   return true;
-    //}
-    
-  public boolean doAction(String choice){
+public boolean doAction(String choice){
 System.out.println("\n*** doAction() function called ***");
-     // return true;
-        
+        return true;
+    }
+    
    choice = choice.toUpperCase(); //convert choice to upper case
    switch (choice) {
-   case "N": // create and start a new game
-   this.startNewGame();
+   //return true;
+   case "W": //Objectives description
+   this.objectivehelp();
    break;
-   case "L": // Load saved game
-   this.startExistingGame();
+   case "H": // Moving and Navigating
+   this.navigatehelp();
    break;
-   case "H": //display the help menu
-   this.displayHelpMenu();
+   case "G": //Obtaining and gathering resources
+   this.gatherhelp();
    break;
-   case "S": // save current game
-   this.saveGame();
+   case "R": // Help for repairing ship
+   this.repairship();
    break;
    default:
    System.out.println("\n*** Invalid selection *** Please try again");
@@ -88,4 +74,4 @@ System.out.println("\n*** doAction() function called ***");
     return false;
     
 }
-}
+    
