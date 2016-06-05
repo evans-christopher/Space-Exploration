@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ibdch
@@ -12,6 +14,8 @@ package citbyui.cit260.SpaceExploration.view;
 public class MainMenuView {
     
     private String menu;
+    private String choice;
+    private String menuOption;
     
     public void displayMainMenuView() {
         boolean done = false; // set flag to not done
@@ -23,11 +27,12 @@ public class MainMenuView {
             
             // do the requested action and display the next view
             done = this.doAction(menuOption);
+            
         } while (!done);
     }
     
     public MainMenuView() {
-        this.menu = "\n"
+        this.menuOption = "\n"
                   + "\n--------------------------------------"
                   + "\n| Main Menu                           "
                   + "\n--------------------------------------"
@@ -39,39 +44,68 @@ public class MainMenuView {
     }
 
     private String getMenuOption() {
-        System.out.println("\n*** getMenuOption() function called ***");
-        return "N";
+        /*System.out.println("\n*** getMenuOption() function called ***");
+        return "N";*/
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        String value = ""; //value to  be returned
+        boolean valid = false; //initialize to not valid
+        
+        while (!valid) { //loop while an invalid value is entered
+            System.out.println("\n" + this.menuOption);
+            
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() < 1) { // value is blank
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            
+            break; //end the loop
+        }
+        
+        return value; //return vaule entered
     }
 
-    private boolean doAction(String menuOption) {
-        System.out.println("\n*** doAction() function called ***");
-        return true;
+    public boolean doAction(String choice) {
+        //System.out.println("\n*** doAction() funcion called");
+        
+        choice = choice.toUpperCase(); // convert choice to upper case
+        
+        switch (choice) {
+            case "N": // create and start new game
+                this.startNewGame();
+                break;
+            case "L": //Load saved game
+                this.startExistingGame();
+                break;
+            case "H": //Open Help Menu
+                this.displayHelpMenu();
+                break;
+            default:
+                System.out.println("\n*** Invalid Selection *** Try Again");
+                break;
+        }
+        return false;
+    }
+   
+    private void startNewGame() {
+        System.out.println("*** startNewGame function called ***");
     }
     
-    //Chris this is where I tried implementing what I thought it wanted 
-    // on page 44.
-    //public boolean doAction(String choice){
-        
-      // choice = choice.toUpperCase(); //convert choice to upper case
-   // switch (choice) {
-   // case "N": // create and start a new game
-   // this.startNewGame();
-   // break;
-   // case "G": // get and start an existing game
-   // this.startExistingGame();
-   // break;
-   //case "H": //display the help menu
-   // this.displayHelpMenu();
-   // break;
-   // case "S": // save current game
-   // this.saveGame();
-   // break;
-   // default:
-   // System.OutOfMemoryError.println("\n*** Invalid selection *** Please try again");
-   // break;
-        
-        // }
+    private void startExistingGame() {
+        System.out.println("*** startExistingGame function called ***");
+    }
     
-    //return false;
-    
+    private void displayHelpMenu() {
+        System.out.println("*** startExistingGame function called ***");
+    }
+
+
+
+    private static class choice {
+
+        public choice() {
+        }
+    }
 }
