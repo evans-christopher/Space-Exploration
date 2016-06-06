@@ -67,6 +67,7 @@ public class MainMenuView {
         return value; //return vaule entered
     }
 
+
     public boolean doAction(String choice) {
         //System.out.println("\n*** doAction() funcion called");
         
@@ -92,13 +93,13 @@ public class MainMenuView {
     private void startNewGame() {
         System.out.println("*** startNewGame function called ***");
     }
-    
+
     private void startExistingGame() {
         System.out.println("*** startExistingGame function called ***");
     }
     
     private void displayHelpMenu() {
-        System.out.println("*** displayHelpMenu function called ***");
+        System.out.println("*** startExistingGame function called ***");
     }
 
 
