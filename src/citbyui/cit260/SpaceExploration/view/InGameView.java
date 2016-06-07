@@ -11,14 +11,12 @@ import java.util.Scanner;
  *
  * @author ibdch
  */
-public class MainMenuView {
-    
-    private String menu;
-    private String choice;
+class InGameView {
+
     private String menuOption;
-    
-    public void displayMainMenuView() {
-        boolean done = false; // set flag to not done
+
+    public void displayInGameView() {
+         boolean done = false; // set flag to not done
         do {
             // prompt for and get players name
             String menuOption = this.getMenuOption();
@@ -31,18 +29,22 @@ public class MainMenuView {
         } while (!done);
     }
     
-    public MainMenuView() {
+    public InGameView() {
         this.menuOption = "\n"
                   + "\n--------------------------------------"
-                  + "\n| Main Menu                           "
+                  + "\n|In Game Menu                         "
                   + "\n--------------------------------------"
-                  + "\nN - Start New Game"
-                  + "\nL - Load Saved Game"
+                  + "\nMAP - View Game Map"
+                  + "\nMOVE - Input Coordinates for New Destination"
+                  + "\nI - Talk to the Locals or Interact with the Area"
+                  + "\nL - View Index of Visited Planets and Known Aliens"
+                  + "\nR - Return Home"
+                  + "\nS - Save Current Game"
                   + "\nH - Open Help Menu"
                   + "\nE - Exit"
                   + "\n--------------------------------------";
     }
-
+    
     private String getMenuOption() {
         /*System.out.println("\n*** getMenuOption() function called ***");
         return "N";*/
@@ -66,22 +68,33 @@ public class MainMenuView {
         
         return value; //return vaule entered
     }
-
-
+    
     public boolean doAction(String choice) {
         //System.out.println("\n*** doAction() funcion called");
         
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start new game
-                this.startNewGame();
+            case "MAP": // View In-Game Map
+                this.mapView();
                 break;
-            case "L": //Load saved game
-                this.startExistingGame();
+            case "MOVE": //Open Movement Options
+                this.movementView();
                 break;
-            case "H": //Open Help Menu
-                this.displayHelpMenu();
+            case "I": //Open Interact
+                this.interactView();
+                break;
+            case "L": //Open Index
+                this.indexView();
+                break;
+            case "R": //End/Win the Game
+                this.endGameView();
+                break;
+            case "S": //Open Interact
+                this.saveView();
+                break;
+            case "H": //Open Interact
+                this.helpMenuView();
                 break;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again");
@@ -89,30 +102,33 @@ public class MainMenuView {
         }
         return false;
     }
-   
-    private void startNewGame() {
-        InGameView inGameView = new InGameView();
-        
-        inGameView.displayInGameView();
+
+    private void mapView() {
+         System.out.println("*** mapView function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void movementView() {
+         System.out.println("*** movementView function called ***");
+    }
+
+    private void interactView() {
+         System.out.println("*** interactView function called ***");
+    }
+
+    private void indexView() {
+         System.out.println("*** indexView function called ***");
+    }
+
+    private void endGameView() {
+         System.out.println("*** endGameView function called ***");
+    }
+
+    private void saveView() {
+         System.out.println("*** saveView function called ***");
+    }
+
+    private void helpMenuView() {
+         System.out.println("*** helpMenuView function called ***");
     }
     
-    private void displayHelpMenu() {
-         // Create HelpMenuView object
-        HelpMenuView HelpMenuView = new HelpMenuView();
-                
-        //Display the help menu view
-        HelpMenuView.displayHelpMenuView();
-    }
-
-
-
-    private static class choice {
-
-        public choice() {
-        }
-    }
 }
