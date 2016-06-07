@@ -99,7 +99,11 @@ public class MainMenuView {
     }
     
     private void displayHelpMenu() {
-        System.out.println("*** startExistingGame function called ***");
+         // Create HelpMenuView object
+        HelpMenuView HelpMenuView = new HelpMenuView();
+                
+        //Display the help menu view
+        HelpMenuView.displayHelpMenuView();
     }
 
 
