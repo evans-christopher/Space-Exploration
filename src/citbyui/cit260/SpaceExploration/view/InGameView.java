@@ -14,6 +14,7 @@ import java.util.Scanner;
 class InGameView {
 
     private String menuOption;
+    private String choice;
 
     public void displayInGameView() {
          boolean done = false; // set flag to not done
@@ -128,7 +129,11 @@ class InGameView {
     }
 
     private void helpMenuView() {
-         System.out.println("*** helpMenuView function called ***");
+        // Create HelpMenuView object
+        HelpMenuView HelpMenuView = new HelpMenuView();
+                
+        //Display the help menu view
+        HelpMenuView.displayHelpMenuView();
     }
     
 }
