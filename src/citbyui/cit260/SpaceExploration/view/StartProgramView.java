@@ -64,7 +64,7 @@ public class StartProgramView {
         do {
             //Prompt for and get the players name
             String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q")) //user wants to quit
+            if (playersName.toUpperCase().equals("E")) //user wants to quit
                 return; //exit the game
             //do the requested action and display the next view
             done = this.doAction(playersName);

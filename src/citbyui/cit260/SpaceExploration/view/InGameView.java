@@ -109,7 +109,11 @@ class InGameView {
     }
 
     private void movementView() {
-         System.out.println("*** movementView function called ***");
+         // Create MainMenuView object
+        MovementView movementView = new MovementView();
+                
+        //Display the main menu view
+        movementView.displayMovementView();
     }
 
     private void interactView() {

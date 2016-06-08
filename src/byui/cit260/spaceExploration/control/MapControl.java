@@ -12,11 +12,12 @@ import static java.lang.Math.abs;
  * @author ibdch
  */
 public class MapControl {
+
    public double calcDistance(int currentRow, int currentCol, int row, int col) {
-       if (row<0 || row>5) {
+       if (row<1 || row>5) {
            return -1;
        }
-       if (col<0 || col>5) {
+       if (col<1 || col>5) {
            return -1;
        }
        int distance = abs(row - currentRow) + abs(col - currentCol);
@@ -25,4 +26,5 @@ public class MapControl {
        }
        return distance;
    }
+   
 }
