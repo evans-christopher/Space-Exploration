@@ -11,27 +11,15 @@ import java.util.Scanner;
  *
  * @author ibdch
  */
-class InGameView {
+public class InGameView implements ViewInterface {
 
     private String menuOption;
     private String choice;
 
-    public void displayInGameView() {
-         boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) //user wants to exit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
+    
     
     public InGameView() {
-        this.menuOption = "\n"
+              super("\n"
                   + "\n--------------------------------------"
                   + "\n|In Game Menu                         "
                   + "\n--------------------------------------"
@@ -43,31 +31,7 @@ class InGameView {
                   + "\nS - Save Current Game"
                   + "\nH - Open Help Menu"
                   + "\nE - Exit"
-                  + "\n--------------------------------------";
-    }
-    
-    private String getMenuOption() {
-        /*System.out.println("\n*** getMenuOption() function called ***");
-        return "N";*/
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; //value to  be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.menuOption);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return vaule entered
+                  + "\n--------------------------------------");
     }
     
     public boolean doAction(String choice) {
@@ -137,7 +101,7 @@ class InGameView {
         HelpMenuView HelpMenuView = new HelpMenuView();
                 
         //Display the help menu view
-        HelpMenuView.displayHelpMenuView();
+        HelpMenuView.display();
     }
     
 }

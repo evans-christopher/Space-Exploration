@@ -73,6 +73,7 @@ public class StartProgramView {
         
     }
  
+    @Override
     private boolean doAction(String playersName) {
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "

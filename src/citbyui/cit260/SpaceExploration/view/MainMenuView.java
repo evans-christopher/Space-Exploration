@@ -11,28 +11,16 @@ import java.util.Scanner;
  *
  * @author ibdch
  */
-public class MainMenuView {
+public class MainMenuView implements ViewInterface{
     
     private String menu;
     private String choice;
     private String menuOption;
     
-    public void displayMainMenuView() {
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) //user wants to exit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
+    
     
     public MainMenuView() {
-        this.menuOption = "\n"
+             super("\n"
                   + "\n--------------------------------------"
                   + "\n| Main Menu                           "
                   + "\n--------------------------------------"
@@ -40,34 +28,10 @@ public class MainMenuView {
                   + "\nL - Load Saved Game"
                   + "\nH - Open Help Menu"
                   + "\nE - Exit"
-                  + "\n--------------------------------------";
+                  + "\n--------------------------------------");
     }
 
-    private String getMenuOption() {
-        /*System.out.println("\n*** getMenuOption() function called ***");
-        return "N";*/
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; //value to  be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.menuOption);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return vaule entered
-    }
-
-
+    @Override
     public boolean doAction(String choice) {
         //System.out.println("\n*** doAction() funcion called");
         
@@ -106,6 +70,21 @@ public class MainMenuView {
                 
         //Display the help menu view
         HelpMenuView.displayHelpMenuView();
+    }
+
+    @Override
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getInput() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

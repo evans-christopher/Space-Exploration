@@ -11,27 +11,14 @@ import java.util.Scanner;
  *
  * @author Erik
  */
-public class HelpMenuView {
+public class HelpMenuView implements ViewInterface {
     
    
     private String menu;
     private final String menuHelp;
     
-    public void displayHelpMenuView() {
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String helpMenuOption = this.getHelpMenuOption();
-            if (helpMenuOption.toUpperCase().equals("E")) //user wants to exit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(helpMenuOption);
-        } while (!done);
-    }
-    
-    public HelpMenuView() {
-        this.menuHelp = "\n"
+    public HelpMenuView(){
+             super ("\n"
                   + "\n--------------------------------------"
                   + "\n| Help Menu                          |"
                   + "\n--------------------------------------"
@@ -40,33 +27,11 @@ public class HelpMenuView {
                   + "\nG - Gathering/using resources"
                   + "\nR - Repairing Ship for voyage home"
                   + "\nE - Exit"
-                  + "\n--------------------------------------";
+                  + "\n--------------------------------------");
     }
-  private String getHelpMenuOption() {
-        /*System.out.println("\n*** getHelpMenuOption() function called ***");
-        return "N";*/
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; //value to  be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.menuHelp);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return vaule entered
-    }
+  
 
- 
+@Override
 public boolean doAction(String choice){
     
    choice = choice.toUpperCase(); //convert choice to upper case

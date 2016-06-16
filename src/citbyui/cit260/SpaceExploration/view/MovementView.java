@@ -97,17 +97,20 @@ public class MovementView {
         return value; //return vaule entered
     }
 
-    private boolean doAction(String newRow, String newCol) {
-        
-        double location = MapControl.calcDistance(currentRow, currentCol, row, col);
-       
+    private boolean doAction(row, col,currentRow, currentCol) {
+        String location = null;
+        /*System.out.println("doAction funtion called");
+        String location = null;*/
+        int userNumber = Integer.parseInt(location);
+        int location = (int) MapControl.calcDistance(currentRow, currentCol, row, col);
         
         this.displayNextView(location);
+        
         return true;
     }
 
 
-    private void displayNextView(String location) {
+    private void displayNextView(int location) {
         currentRow = row;
         currentCol = col;
     
