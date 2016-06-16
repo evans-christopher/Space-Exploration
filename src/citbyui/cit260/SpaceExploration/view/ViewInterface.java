@@ -45,7 +45,7 @@ public abstract class View implements ViewInterface {
     }
     
     @Override
-    private String getInput() {
+    public String getInput() {
         
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = null; //value to  be returned
@@ -67,5 +67,11 @@ public abstract class View implements ViewInterface {
         
         return value; //return vaule entered
     }
+
+        private boolean doAction(String value) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    
+    
 }
 }

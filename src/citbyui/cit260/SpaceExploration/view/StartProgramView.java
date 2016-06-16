@@ -73,7 +73,6 @@ public class StartProgramView {
         
     }
  
-    @Override
     private boolean doAction(String playersName) {
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
@@ -106,7 +105,7 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
                 
         //Display the main menu view
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
         
     }
     

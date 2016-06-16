@@ -5,13 +5,13 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
-import java.util.Scanner;
+import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
 
 /**
  *
  * @author ibdch
  */
-public class MainMenuView implements ViewInterface{
+public class MainMenuView extends View{
     
     private String menu;
     private String choice;
@@ -31,7 +31,6 @@ public class MainMenuView implements ViewInterface{
                   + "\n--------------------------------------");
     }
 
-    @Override
     public boolean doAction(String choice) {
         //System.out.println("\n*** doAction() funcion called");
         
@@ -57,7 +56,7 @@ public class MainMenuView implements ViewInterface{
     private void startNewGame() {
         InGameView inGameView = new InGameView();
         
-        inGameView.displayInGameView();
+        inGameView.display();
     }
 
     private void startExistingGame() {

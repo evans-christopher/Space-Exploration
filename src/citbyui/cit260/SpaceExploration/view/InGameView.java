@@ -5,13 +5,13 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
-import java.util.Scanner;
+import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
 
 /**
  *
  * @author ibdch
  */
-public class InGameView implements ViewInterface {
+public class InGameView extends View {
 
     private String menuOption;
     private String choice;
@@ -102,6 +102,15 @@ public class InGameView implements ViewInterface {
                 
         //Display the help menu view
         HelpMenuView.display();
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

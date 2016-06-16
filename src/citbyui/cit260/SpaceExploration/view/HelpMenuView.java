@@ -5,17 +5,17 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
-import java.util.Scanner;
+import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
 
 /**
  *
  * @author Erik
  */
-public class HelpMenuView implements ViewInterface {
+public class HelpMenuView extends View {
     
    
     private String menu;
-    private final String menuHelp;
+    
     
     public HelpMenuView(){
              super ("\n"
@@ -31,7 +31,6 @@ public class HelpMenuView implements ViewInterface {
     }
   
 
-@Override
 public boolean doAction(String choice){
     
    choice = choice.toUpperCase(); //convert choice to upper case
@@ -76,6 +75,21 @@ public boolean doAction(String choice){
       
       
     }
+
+    void displayHelpMenuView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     }
     
     
