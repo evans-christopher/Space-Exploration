@@ -81,7 +81,87 @@ public class Item {
     public String toString() {
         return "Item{" + "type=" + type + ", quantity=" + quantity + ", requiredAmount=" + requiredAmount + '}';
     }
-    
-    
+    public enum Inventory{
+            battery,
+            coolantSystem,
+            magnodrive,
+            converter,
+            fuelInjector,
+            wrench,
+            hammer,
+            torch,
+            superCharger,
+            coolant;
+        }
+        
+    public static Item[] createItemList() {
+        
+        //create array list of items
+        
+        Item[] item = new Item[10];
+        
+        Item battery = new Item();
+        battery.setType("Warp Drive Battery");
+        battery.setQuantity(0);
+        battery.setRequiredAmount(1);
+        item[Inventory.battery.ordinal()] = battery;
+        
+        Item coolantSystem = new Item();
+        coolantSystem.setType("Coolant System");
+        coolantSystem.setQuantity(0);
+        coolantSystem.setRequiredAmount(1);
+        item[Inventory.coolantSystem.ordinal()] = coolantSystem;
+        
+        Item magnodrive = new Item();
+        magnodrive.setType("Magnodrive");
+        magnodrive.setQuantity(0);
+        magnodrive.setRequiredAmount(1);
+        item[Inventory.magnodrive.ordinal()] = magnodrive;
+        
+        Item converter = new Item();
+        converter.setType("Energy Converter Module");
+        converter.setQuantity(0);
+        converter.setRequiredAmount(1);
+        item[Inventory.converter.ordinal()] = converter;
+        
+        Item fuelInjector = new Item();
+        fuelInjector.setType("Fuel Injector");
+        fuelInjector.setQuantity(0);
+        fuelInjector.setRequiredAmount(1);
+        item[Inventory.fuelInjector.ordinal()] = fuelInjector;
+        
+        Item wrench = new Item();
+        wrench.setType("Monkey Wrench");
+        wrench.setQuantity(0);
+        wrench.setRequiredAmount(1);
+        item[Inventory.wrench.ordinal()] = wrench;
+        
+        Item hammer = new Item();
+        hammer.setType("Quadplex Hammer");
+        hammer.setQuantity(0);
+        hammer.setRequiredAmount(1);
+        item[Inventory.hammer.ordinal()] = hammer;
+        
+        Item torch = new Item();
+        torch.setType("Blow Torch");
+        torch.setQuantity(0);
+        torch.setRequiredAmount(1);
+        item[Inventory.torch.ordinal()] = torch;
+        
+        Item superCharger = new Item();
+        superCharger.setType("Supercharger");
+        superCharger.setQuantity(0);
+        superCharger.setRequiredAmount(1);
+        item[Inventory.superCharger.ordinal()] = superCharger;
+        
+        Item coolant = new Item();
+        coolant.setType("Warp Drive Battery");
+        coolant.setQuantity(0);
+        coolant.setRequiredAmount(1);
+        item[Inventory.coolant.ordinal()] = coolant;
+        
+        return item;
+        
+    }
     
 }

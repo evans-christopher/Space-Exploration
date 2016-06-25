@@ -12,8 +12,13 @@ package byui.cit260.spaceExploration.model;
 public class Game {
     
     private double totalTime;
-
-    public double getTotalTime() {
+    
+    private Character[] character;
+    private Ship ship;
+    private Player player;
+    private Item[] item;
+    private Map map;
+public double getTotalTime() {
         return totalTime;
     }
 
@@ -52,6 +57,47 @@ public class Game {
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';
+    }
+
+    public Character[] getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character[] character) {
+        this.character = character;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
     
     

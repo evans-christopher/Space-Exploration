@@ -16,6 +16,9 @@ public class Map {
     private double rowCount;
     private double columnCount;
     private String describePlanets;
+    private Location[][] locations;
+    private int rowNumber;
+    private int colNumber;
 
     public double getRowCount() {
         return rowCount;
@@ -40,8 +43,47 @@ public class Map {
     public void setDescribePlanets(String describePlanets) {
         this.describePlanets = describePlanets;
     }
+    
+    private static Map createMap() {
+        //create the map
+        Map map = new Map(5, 5);
+        //create the scenes for the game
+        Scene[] scenes = createScenes();
+        //assign scenes to locations
+        GameControl.assignScenes to Locations(map, scenes);
+        
+        return map;
+    }
 
     public Map() {
+    }
+    
+    public Map(int rowNumber, int colNumber) {
+        
+        if (rowNumber < 1 || colNumber < 1) {
+            System.out.println("The number of rows and columns" 
+                               + " must be greater than 0");
+            return;
+        }
+        
+        this.rowNumber = rowNumber;
+        this.colNumber = colNumber;
+        
+        // create 2D array for location objects
+        this.locations = new Location[rowNumber][colNumber];
+        
+        for (int row = 0; row < rowNumber; row++) {
+            for (int col = 0; col < colNumber; col++) {
+                //create and initialize new Location object instance
+                Location location = new Location();
+                location.setCol(col);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                //assign the Location object to the current position in array
+                locations[row][col] = location;
+            }
+        }
     }
 
     @Override
@@ -80,6 +122,10 @@ public class Map {
     @Override
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", describePlanets=" + describePlanets + '}';
+    }
+
+    Location[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

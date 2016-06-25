@@ -15,7 +15,7 @@ public interface ViewInterface {
     
     public void display();
     public String getInput();
-    public boolean doAction();
+    public boolean doAction(String value);
     
    
  
@@ -68,10 +68,6 @@ public abstract class View implements ViewInterface {
         return value; //return vaule entered
     }
 
-        private boolean doAction(String value) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    
-    
+        
 }
 }

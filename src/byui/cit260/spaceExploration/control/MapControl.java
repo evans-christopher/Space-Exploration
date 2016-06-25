@@ -12,19 +12,12 @@ import static java.lang.Math.abs;
  * @author ibdch
  */
 public class MapControl {
-
-   public double calcDistance(int currentRow, int currentCol, int row, int col) {
-       if (row<1 || row>5) {
-           return -1;
-       }
-       if (col<1 || col>5) {
-           return -1;
-       }
-       int distance = abs(row - currentRow) + abs(col - currentCol);
-       if (distance<1 || distance>5) {
-           return -1;
-       }
-       return distance;
-   }
+    public static Map createMap() throws MapControlException {
+        //create the map
+        Map map = null;
+        
+        System.out.println("\n createMap() called");
+        return map;
+    }
    
 }

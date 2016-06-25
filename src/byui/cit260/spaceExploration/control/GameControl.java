@@ -5,7 +5,11 @@
  */
 package byui.cit260.spaceExploration.control;
 
+import byui.cit260.spaceExploration.model.Game;
+import byui.cit260.spaceExploration.model.Item;
+import byui.cit260.spaceExploration.model.Map;
 import byui.cit260.spaceExploration.model.Player;
+import byui.cit260.spaceExploration.model.Ship;
 import spaceexploration.SpaceExploration;
 
 /**
@@ -13,6 +17,32 @@ import spaceexploration.SpaceExploration;
  * @author ibdch
  */
 public class GameControl {
+    
+    public static void createNewGame(Player player) {
+        
+        Game game = new Game(); //Create new game
+        SpaceExploration.setCurrentGame(game); //save in SpaceExploration
+        
+        game.setPlayer(player); //save player in game
+        
+        //create the item list and save in the game
+        Item[] itemList = GameControl.createItemList();
+        game.setItem(itemList);
+        
+        Ship ship = new Ship(); //create new ship
+        game.setShip(ship); //save ship in game
+        
+        Map map = MapControl.createMap(); //create and initialize new map
+        game.setMap(map); //save map in game
+        
+        //Put characters in their location
+        MapControl.placeCharacters(map);
+    }
+    
+    public static Item[] createItemList() {
+        System.out.println("*** called createItemList() in Game Control ***");
+        return null;
+    }
 
     public static Player createPlayer(String name) {
         

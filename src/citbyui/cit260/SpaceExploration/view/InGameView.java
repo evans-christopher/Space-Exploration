@@ -104,10 +104,7 @@ public class InGameView extends View {
         HelpMenuView.display();
     }
 
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public void display() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

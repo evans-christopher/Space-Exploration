@@ -17,7 +17,7 @@ public class Ship {
     private double fuelAmount;
     private double damageAmount;
     private double limitMove;
-    private String repair;
+    private boolean repair;
     private double makeFuel;
 
     public String getDescription() {
@@ -52,11 +52,11 @@ public class Ship {
         this.limitMove = limitMove;
     }
 
-    public String getRepair() {
+    public boolean isRepair() {
         return repair;
     }
 
-    public void setRepair(String repair) {
+    public void setRepair(boolean repair) {
         this.repair = repair;
     }
 
@@ -119,7 +119,17 @@ public class Ship {
     }
 
     public Ship() {
+        this.description = "\nYour now damaged base of operations,"
+                + " Repair this, and you can go home.";
+        this.fuelAmount = 0;
+        this.damageAmount = 100;
+        this.limitMove = 5;
+        this.repair = false;
+        this.makeFuel = 0;
     }
-           
+
+    
+
+        
     
 }

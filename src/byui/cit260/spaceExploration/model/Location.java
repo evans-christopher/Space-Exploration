@@ -5,6 +5,8 @@
  */
 package byui.cit260.spaceExploration.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Erik
@@ -17,6 +19,8 @@ public class Location {
     private int visited;
     private double amountRemaining;
     private double displaySymbol;
+    private Scene scene;
+    private ArrayList<Character> character;
 
     public double getAmountRemaining() {
         return amountRemaining;
@@ -69,6 +73,22 @@ public class Location {
     @Override
     public String toString() {
         return "Location{" + "amountRemaining=" + amountRemaining + ", displaySymbol=" + displaySymbol + '}';
+    }
+
+    void setCol(int col) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setRow(int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setVisited(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setScene(Scene scene) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

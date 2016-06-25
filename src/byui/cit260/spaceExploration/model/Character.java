@@ -5,57 +5,54 @@
  */
 package byui.cit260.spaceExploration.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
  *
  * @author Erik
  */
-public class Character implements Serializable{
+public enum Character implements Serializable{
     
-    //class instance variables
-    private String name;
-    private double coordinates;
+    Celbo("Alien with warp drive battery."),
+    Ji("Alien with coolant system"),
+    Humana("Alien with a magnodrive."),
+    Urien("Alien location for three parts"),
+    Jack("Human with spare energy converter"),
+    Ran("Alien with fuel injector."),
+    Hugh("Human with fuel locations and monkey wrench."),
+    Dewby("Human with fuel locations and hammer"),
+    Lewis("Human with fuel locations and blow torch."),
+    Slre("Alien with supercharger."),
+    Tolwe("Alien with coolant"),
+    Tulwe("Alien with coolant"),
+    Tilwe("Alien with coolant"),
+    Rudnimq("Human with alien name.");
+    
+    private final String description;
+    private final Point coordinates;
 
     @Override
     public String toString() {
         return "Character{" + "coordinates=" + coordinates + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.coordinates) ^ (Double.doubleToLongBits(this.coordinates) >>> 32));
-        return hash;
+    
+
+    Character(String description) {
+        this.description =  description;
+        coordinates = new Point(1,1);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Character other = (Character) obj;
-        if (Double.doubleToLongBits(this.coordinates) != Double.doubleToLongBits(other.coordinates)) {
-            return false;
-        }
-        return true;
+    public String getDescription() {
+        return description;
     }
 
-    public Character() {
-    }
-
-    public double getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(double coordinates) {
-        this.coordinates = coordinates;
-    }
+    
+    
     
 }

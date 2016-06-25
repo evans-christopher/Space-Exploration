@@ -13,10 +13,7 @@ import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
  */
 public class MainMenuView extends View{
     
-    private String menu;
-    private String choice;
-    private String menuOption;
-    
+   
     
     
     public MainMenuView() {
@@ -30,13 +27,13 @@ public class MainMenuView extends View{
                   + "\nE - Exit"
                   + "\n--------------------------------------");
     }
-
-    public boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String value) {
         //System.out.println("\n*** doAction() funcion called");
         
-        choice = choice.toUpperCase(); // convert choice to upper case
+        value = value.toUpperCase(); // convert choice to upper case
         
-        switch (choice) {
+        switch (value) {
             case "N": // create and start new game
                 this.startNewGame();
                 break;
@@ -54,8 +51,9 @@ public class MainMenuView extends View{
     }
    
     private void startNewGame() {
-        InGameView inGameView = new InGameView();
+        GameControl.createNewGame(SpaceExploration.getPlayer())
         
+        InGameView inGameView = new InGameView();
         inGameView.display();
     }
 
@@ -71,26 +69,4 @@ public class MainMenuView extends View{
         HelpMenuView.displayHelpMenuView();
     }
 
-    @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-
-    private static class choice {
-
-        public choice() {
-        }
-    }
 }
