@@ -5,7 +5,9 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
+import byui.cit260.spaceExploration.control.GameControl;
 import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
+import spaceexploration.SpaceExploration;
 
 /**
  *
@@ -51,10 +53,9 @@ public class MainMenuView extends View{
     }
    
     private void startNewGame() {
-        GameControl.createNewGame(SpaceExploration.getPlayer())
         
-        InGameView inGameView = new InGameView();
-        inGameView.display();
+        InGameView InGameView = new InGameView();
+        InGameView.display();
     }
 
     private void startExistingGame() {
@@ -66,7 +67,7 @@ public class MainMenuView extends View{
         HelpMenuView HelpMenuView = new HelpMenuView();
                 
         //Display the help menu view
-        HelpMenuView.displayHelpMenuView();
+        HelpMenuView.display();
     }
 
 }

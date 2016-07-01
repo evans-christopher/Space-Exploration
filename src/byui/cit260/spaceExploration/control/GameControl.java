@@ -5,6 +5,7 @@
  */
 package byui.cit260.spaceExploration.control;
 
+import byui.cit260.spaceExploration.Exceptions.MapControlException;
 import byui.cit260.spaceExploration.model.Game;
 import byui.cit260.spaceExploration.model.Item;
 import byui.cit260.spaceExploration.model.Map;
@@ -18,7 +19,7 @@ import spaceexploration.SpaceExploration;
  */
 public class GameControl {
     
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlException {
         
         Game game = new Game(); //Create new game
         SpaceExploration.setCurrentGame(game); //save in SpaceExploration
@@ -56,6 +57,12 @@ public class GameControl {
         SpaceExploration.setPlayer(player); //save the player
         
         return player;
+    }
+
+    public static class assignScenes {
+
+        public assignScenes() {
+        }
     }
     
 }

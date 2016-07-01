@@ -5,6 +5,7 @@
  */
 package byui.cit260.spaceExploration.model;
 
+import byui.cit260.spaceExploration.control.GameControl;
 import java.util.Objects;
 
 /**
@@ -12,6 +13,14 @@ import java.util.Objects;
  * @author ibdch
  */
 public class Map {
+
+    private static Scene[] createScenes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void Locations(Map map, Scene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private double rowCount;
     private double columnCount;

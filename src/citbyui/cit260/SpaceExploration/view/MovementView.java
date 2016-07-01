@@ -7,6 +7,8 @@ package citbyui.cit260.SpaceExploration.view;
 
 import byui.cit260.spaceExploration.control.MapControl;
 import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 
 public class MovementView extends View {
@@ -21,7 +23,7 @@ public class MovementView extends View {
     @Override
     public boolean doAction(String row, String col) {
         int row = parseInt.Input();
-        display.promptMessage("Now enter the desired column number:")
+        display.promptMessage("Now enter the desired column number:");
         int col = parseInt.Input();
         int currentRow = 1;
         int currentCol = 1;
@@ -53,3 +55,7 @@ public class MovementView extends View {
 
     
 }
+
+    void displayMovementView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }

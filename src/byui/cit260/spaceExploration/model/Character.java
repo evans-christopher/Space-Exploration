@@ -14,23 +14,23 @@ import java.io.Serializable;
  */
 public enum Character implements Serializable{
     
-    Celbo("Alien with warp drive battery."),
     Ji("Alien with coolant system"),
-    Humana("Alien with a magnodrive."),
     Urien("Alien location for three parts"),
     Jack("Human with spare energy converter"),
     Ran("Alien with fuel injector."),
     Hugh("Human with fuel locations and monkey wrench."),
     Dewby("Human with fuel locations and hammer"),
-    Lewis("Human with fuel locations and blow torch."),
     Slre("Alien with supercharger."),
     Tolwe("Alien with coolant"),
     Tulwe("Alien with coolant"),
-    Tilwe("Alien with coolant"),
     Rudnimq("Human with alien name.");
     
     private final String description;
     private final Point coordinates;
+    private boolean options;
+    private Object getGame;
+    private Object Game;
+    private Object scene;
 
     @Override
     public String toString() {
@@ -51,8 +51,6 @@ public enum Character implements Serializable{
     public Point getCoordinates() {
         return coordinates;
     }
-
-    
     
     
 }

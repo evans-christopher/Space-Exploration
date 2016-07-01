@@ -16,6 +16,7 @@ public class Scene implements Serializable{
     private String description;
     private double blockedLocation;
     
+    
     private static Scene[] createScenes() {
         
         Scene[] scenes = new Scene[SceneType.values().length];
@@ -23,7 +24,7 @@ public class Scene implements Serializable{
         Scene startScene = new Scene();
         startScene.setDescription(
                 "Lost deep in an unknown galaxy, (add players name) has come to"
-                + "explor the new territory for potential colonization for"
+                + "explore the new territory for potential colonization for"
                 + "humanity, but this brave pilot was attacked by space pirates"
                 + "and left stranded, far from home and in need of new parts"
                 + "and fuel to go into warpspace and return home.");
@@ -58,7 +59,7 @@ public class Scene implements Serializable{
         asteroidScene.setDescription("Warning! Entering asteroid field."
                 + "What course of action do you want to take?");
         asteroidScene.setMapSymbol("A");
-        asteroidScene.setTimeTravel(0);
+        asteroidScene.setTravelTime(0);
         scenes[SceneType.asteroid.ordinal()] = asteroidScene;
         
         return scenes;
@@ -75,8 +76,8 @@ public class Scene implements Serializable{
         locations[0][4].setScene(scenes[SceneType.pirate.ordinal()]);
         locations[1][0].setScene(scenes[SceneType.planet.ordinal()]);
         locations[1][1].setScene(scenes[SceneType.fuel.ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.pirate.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.asteroid.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.planet.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.planet.ordinal()]);
         locations[1][4].setScene(scenes[SceneType.asteroid.ordinal()]);
         locations[2][0].setScene(scenes[SceneType.pirate.ordinal()]);
         locations[2][1].setScene(scenes[SceneType.planet.ordinal()]);
@@ -100,6 +101,10 @@ public class Scene implements Serializable{
     }
 
     private void setMapSymbol(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setTravelTime(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
