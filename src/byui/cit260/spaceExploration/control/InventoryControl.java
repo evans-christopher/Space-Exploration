@@ -5,10 +5,20 @@
  */
 package byui.cit260.spaceExploration.control;
 
+import byui.cit260.spaceExploration.Exceptions.InventoryControlException;
+import byui.cit260.spaceExploration.model.Item;
+
 /**
  *
  * @author ibdch
  */
 public class InventoryControl {
+
+    public static Item addItem()  {
+        
+        Item item = null;
+        System.out.println("\n addItem() called");
+        return item;
+    }
     
 }

@@ -5,6 +5,9 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
+import byui.cit260.spaceExploration.model.Game;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -21,10 +24,16 @@ public interface ViewInterface {
  
 public abstract class View implements ViewInterface {
     
-    protected String displayMessage;
+    private String message;
+    
+    protected final BufferedReader keyboard = Game.getInFile();
+    protected final PrintWriter console = Game.getOutFile();
     
     public View() {
     }
+    
+    protected String displayMessage;
+    
     
     public View(String message) {
         this.displayMessage = message;
@@ -47,27 +56,31 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        // get infile for keyboard
         String value = null; //value to  be returned
         boolean valid = false; //initialize to not valid
         
         while (!valid) { //loop while an invalid value is entered
             System.out.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = this.keyboard.readLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
-            
+        try{    
             if (value.length() < 1) { // value is blank
-                System.out.println("\nYou must enter a value.");
+                ErrorView.display(this.getClass().getName(),
+                        "You must enter a value.");
                 continue;
             }
             
             break; //end the loop
+        }catch (Exception e) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input: " + e.getMessage());
+                return null;
+                }
         }
-        
         return value; //return vaule entered
     }
-
         
 }
 }

@@ -5,6 +5,14 @@
  */
 package byui.cit260.spaceExploration.model;
 
+import citbyui.cit260.SpaceExploration.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ibdch
@@ -18,7 +26,45 @@ public class Game {
     private Player player;
     private Item[] item;
     private Map map;
-public double getTotalTime() {
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+    
+    public static void main(String[] args) {
+        try {
+            Game.inFile = 
+                    new BufferedReader(new InputStreamReader(System.in));
+            Game.outFile = new PrintWriter(System.out, true);
+            
+            String filePath = "log.txt";
+            Game.logFile = new PrintWriter(filePath);
+            
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+            return;
+        } catch (Throwable e) {
+            System.out.println("Exception: " + e.toString() +
+                    "\nCause: " + e.getCause() + "\nMessage: " 
+                    + e.getMessage());
+            e.printStackTrace();;
+        }
+        finally {
+            try {
+                if(Game.inFile != null)
+                    Game.inFile.close();
+                if(Game.outFile != null)
+                    Game.outFile.close();
+                if(Game.logFile != null)
+                    Game.logFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }
+    public double getTotalTime() {
         return totalTime;
     }
 
@@ -98,6 +144,30 @@ public double getTotalTime() {
 
     public void setShip(Ship ship) {
         this.ship = ship;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        Game.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        Game.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Game.logFile = logFile;
     }
     
     
