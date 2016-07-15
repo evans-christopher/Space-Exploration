@@ -21,14 +21,9 @@ public class MovementView extends View {
     }
     
     public boolean doAction(String row, String col) {
-        int row = parseInt.Input();
-        display.promptMessage("Now enter the desired column number:");
-        int col = parseInt.Input();
-        int currentRow = 1;
-        int currentCol = 1;
-        int distance = MapControl.calcDistance(row, currentRow, col, currentCol);
-        /*System.out.println("doAction funtion called");
-        String location = null;*
+       
+        System.out.println("doAction funtion called");
+        /*String location = null;*
         
         this.displayNextView(location);
         
@@ -52,7 +47,7 @@ public class MovementView extends View {
         
     }*/
 
-    
+    return true;
 }
 
     void displayMovementView() {

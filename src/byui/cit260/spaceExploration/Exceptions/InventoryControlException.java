@@ -9,9 +9,25 @@ package byui.cit260.spaceExploration.Exceptions;
  *
  * @author ibdch
  */
-public class InventoryControlException {
+public class InventoryControlException extends Exception {
 
     public InventoryControlException() {
     }
-    
+
+    public InventoryControlException(String message) {
+        super(message);
+    }
+
+    public InventoryControlException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public InventoryControlException(Throwable cause) {
+        super(cause);
+    }
+
+    public InventoryControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+
 }

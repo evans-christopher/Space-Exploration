@@ -72,7 +72,7 @@ public class MainMenuView extends View{
             ErrorView.display("MainMenuView", ex.getMessage());
         }
         
-        InGameView InGameView = InGameView();
+        InGameView InGameView = new InGameView();
         InGameView.display();
     }
     
@@ -84,9 +84,5 @@ public class MainMenuView extends View{
         HelpMenuView.display();
     }
 
-
-    private InGameView InGameView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }
