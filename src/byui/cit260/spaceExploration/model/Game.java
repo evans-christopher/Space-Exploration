@@ -21,6 +21,7 @@ public class Game {
     
     private double totalTime;
     
+    private static Game currentGame;
     private Character[] character;
     private Ship ship;
     private Player player;
@@ -169,6 +170,15 @@ public class Game {
     public static void setLogFile(PrintWriter logFile) {
         Game.logFile = logFile;
     }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        Game.currentGame = currentGame;
+    }
+
     
     
     

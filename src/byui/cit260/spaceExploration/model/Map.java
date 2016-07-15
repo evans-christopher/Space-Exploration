@@ -59,7 +59,7 @@ public class Map {
         //create the scenes for the game
         Scene[] scenes = createScenes();
         //assign scenes to locations
-        GameControl.assignScenes to Locations(map, scenes);
+        GameControl.assignScenes = Locations(map, scenes);
         
         return map;
     }

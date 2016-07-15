@@ -6,6 +6,8 @@
 package byui.cit260.spaceExploration.model;
 
 import java.awt.Point;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -32,6 +34,45 @@ public enum Character implements Serializable{
     private Object Game;
     private Object scene;
 
+    public void savePlayersNames() {
+        
+        FileWriter outFile = null; //define a variable for a file stream
+        
+        //Specify the file location of the file
+        String fileLocation = "characters.txt";
+        
+        try {
+            //Create and open a new file stream for the output file
+            outFile = new FileWriter(fileLocation);
+            
+            //Write each name to the file plus a new line character
+            outFile.write("Ji\n");
+            outFile.write("Urien\n");
+            outFile.write("Jack\n");
+            outFile.write("Ran\n");
+            outFile.write("Hugh\n");
+            outFile.write("Dewby\n");
+            outFile.write("Slre\n");
+            outFile.write("Tolwe\n");
+            outFile.write("Tulwe\n");
+            outFile.write("Rudnimq\n");
+            
+            outFile.flush(); //flush out any data left in the file stream
+            
+        } catch (IOException ex) {
+            System.out.println("Error saving characters names to file");
+        } finally {
+            if (outFile != null) {
+                //if the file was created successfully
+              try {
+                outFile.close();
+              } catch (IOException ex2) {
+                  System.out.println("Error closing file.");
+              }    
+            }
+        }
+    }
+    
     @Override
     public String toString() {
         return "Character{" + "coordinates=" + coordinates + '}';

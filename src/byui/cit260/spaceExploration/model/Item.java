@@ -5,6 +5,10 @@
  */
 package byui.cit260.spaceExploration.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -145,4 +149,60 @@ public class Item {
         
     }
     
+    public void saveInventory() {
+        
+        FileWriter outFile = null; //define a variable for a file stream
+        
+        //Specify the file location of the file
+        String fileLocation = "items.txt";
+        
+        try {
+            //Create and open a new file stream for the output file
+            outFile = new FileWriter(fileLocation);
+            
+            //Write each name to the file plus a new line character
+            outFile.write("Coolant System\n");
+            outFile.write("Converter\n");
+            outFile.write("Fuel Injector\n");
+            outFile.write("Wrench\n");
+            outFile.write("Hammer\n");
+            outFile.write("Super Charger\n");
+            outFile.write("Coolant\n");
+            
+            outFile.flush(); //flush out any data left in the file stream
+            
+        } catch (IOException ex) {
+            System.out.println("Error saving inventory to file");
+        } finally {
+            if (outFile != null) {
+                //if the file was created successfully
+              try {
+                outFile.close();
+              } catch (IOException ex2) {
+                  System.out.println("Error closing file.");
+              }    
+            }
+        }
+    }
+    
+    public void printInventory (ArrayList<Item> inventoryItems, 
+                                String outputLocation) {
+       //Create a BufferReader object for the input file
+       try (PrintWriter out = new PrintWriter(outputLocation)) {
+           
+           //Print the title and column headings
+           out.println("\n\n               Inventory            ");
+           out.printf("%n%-20s%10s%10s", "Description", "Quantity", "Required");
+           out.printf("%n%-20s%10s%10s", "-----------", "--------", "--------");
+           
+           // print the description, quantity, and Required Amout of each item
+           for (Item item: inventoryItems) {
+               out.printf("%n%-20s%7d%13.2f", item.getType()
+                                            , item.getQuantity()
+                                            , item.getRequiredAmount());
+           }
+       } catch (IOException ex) {
+           System.out.println("I/O Error: " + ex.getMessage());
+       }
+    }
 }

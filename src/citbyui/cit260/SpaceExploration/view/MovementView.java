@@ -6,8 +6,8 @@
 package citbyui.cit260.SpaceExploration.view;
 
 import byui.cit260.spaceExploration.control.MapControl;
+import static citbyui.cit260.SpaceExploration.view.ErrorView.display;
 import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
-import static java.lang.Integer.parseInt;
 import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 
@@ -20,7 +20,6 @@ public class MovementView extends View {
                 + "\n First enter the row you want to be in:");
     }
     
-    @Override
     public boolean doAction(String row, String col) {
         int row = parseInt.Input();
         display.promptMessage("Now enter the desired column number:");

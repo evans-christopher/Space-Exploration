@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.SpaceExploration.view;
 
+import byui.cit260.spaceExploration.control.GameControl;
+import byui.cit260.spaceExploration.model.Game;
 import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
 
 /**
@@ -93,7 +95,16 @@ public class InGameView extends View {
     }
 
     private void saveView() {
-         System.out.println("*** saveView function called ***");
+        this.console.println("\n\nEnter the file path for the file"
+                        + " where the game is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameControl.saveView(Game.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void helpMenuView() {

@@ -7,8 +7,11 @@ package citbyui.cit260.SpaceExploration.view;
 
 import byui.cit260.spaceExploration.model.Game;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -63,7 +66,11 @@ public abstract class View implements ViewInterface {
         while (!valid) { //loop while an invalid value is entered
             System.out.println("\n" + this.displayMessage);
             
-            value = this.keyboard.readLine(); // get next line typed on keyboard
+            try {
+                value = this.keyboard.readLine(); // get next line typed on keyboard
+            } catch (IOException ex) {
+                Logger.getLogger(ViewInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
             value = value.trim(); // trim off leading and trailing blanks
         try{    
             if (value.length() < 1) { // value is blank

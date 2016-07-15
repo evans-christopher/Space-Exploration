@@ -5,7 +5,11 @@
  */
 package byui.cit260.spaceExploration.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -94,6 +98,82 @@ public class Scene implements Serializable{
         locations[4][2].setScene(scenes[SceneType.fuel.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.asteroid.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.planet.ordinal()]);
+    }
+    
+    public void saveLocation() {
+        
+        FileWriter outFile = null; //define a variable for a file stream
+        
+        //Specify the file location of the file
+        String fileLocation = "locations.txt";
+        
+        try {
+            //Create and open a new file stream for the output file
+            outFile = new FileWriter(fileLocation);
+            
+            //Write each name to the file plus a new line character
+            outFile.write("Location(0,0)- start\n");
+            outFile.write("Location(0,1)- fuel\n");
+            outFile.write("Location(0,2)- planet\n");
+            outFile.write("Location(0,3)- fuel\n");
+            outFile.write("Location(0,4)- pirate\n");
+            outFile.write("Location(1,0)- planet\n");
+            outFile.write("Location(1,1)- fuel\n");
+            outFile.write("Location(1,2)- planet\n");
+            outFile.write("Location(1,3)- planet\n");
+            outFile.write("Location(1,4)- asteroid\n");
+            outFile.write("Location(2,0)- pirate\n");
+            outFile.write("Location(2,1)- planet\n");
+            outFile.write("Location(2,2)- fuel\n");
+            outFile.write("Location(2,3)- fuel\n");
+            outFile.write("Location(2,4)- planet\n");
+            outFile.write("Location(3,0)- planet\n");
+            outFile.write("Location(3,1)- asteroid\n");
+            outFile.write("Location(3,2)- planet\n");
+            outFile.write("Location(3,3)- planet\n");
+            outFile.write("Location(3,4)- fuel\n");
+            outFile.write("Location(4,0)- fuel\n");
+            outFile.write("Location(4,1)- pirate\n");
+            outFile.write("Location(4,2)- fuel\n");
+            outFile.write("Location(4,3)- asteroid\n");
+            outFile.write("Location(4,4)- planet\n");
+            
+            
+            outFile.flush(); //flush out any data left in the file stream
+            
+        } catch (IOException ex) {
+            System.out.println("Error saving inventory to file");
+        } finally {
+            if (outFile != null) {
+                //if the file was created successfully
+              try {
+                outFile.close();
+              } catch (IOException ex2) {
+                  System.out.println("Error closing file.");
+              }    
+            }
+        }
+    }
+    
+    public void printInventory (ArrayList<Item> inventoryItems, 
+                                String outputLocation) {
+       //Create a BufferReader object for the input file
+       try (PrintWriter out = new PrintWriter(outputLocation)) {
+           
+           //Print the title and column headings
+           out.println("\n\n               Inventory            ");
+           out.printf("%n%-20s%10s%10s", "Description", "Quantity", "Required");
+           out.printf("%n%-20s%10s%10s", "-----------", "--------", "--------");
+           
+           // print the description, quantity, and Required Amout of each item
+           for (Item item: inventoryItems) {
+               out.printf("%n%-20s%7d%13.2f", item.getType()
+                                            , item.getQuantity()
+                                            , item.getRequiredAmount());
+           }
+       } catch (IOException ex) {
+           System.out.println("I/O Error: " + ex.getMessage());
+       }
     }
 
     private void setDescription(String string) {

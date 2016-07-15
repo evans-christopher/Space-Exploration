@@ -6,6 +6,7 @@
 package citbyui.cit260.SpaceExploration.view;
 
 import byui.cit260.spaceExploration.control.GameControl;
+import byui.cit260.spaceExploration.model.Game;
 import citbyui.cit260.SpaceExploration.view.ViewInterface.View;
 import spaceexploration.SpaceExploration;
 
@@ -59,7 +60,20 @@ public class MainMenuView extends View{
     }
 
     private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+        this.console.println("\n\nEnter the file path for the file"
+                        + " where the game is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameControl.getSavedGame (filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        InGameView InGameView = InGameView();
+        InGameView.display();
     }
     
     private void displayHelpMenu() {
@@ -68,6 +82,11 @@ public class MainMenuView extends View{
                 
         //Display the help menu view
         HelpMenuView.display();
+    }
+
+
+    private InGameView InGameView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
